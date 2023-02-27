@@ -1,0 +1,46 @@
+$bg-color: hsl(200, 100, 75%);
+
+.keyboard-wrapper {
+  align-self: stretch;
+}
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  gap: 0.5rem;
+
+  .letter-button {
+    width: 100%;
+    text-transform: uppercase;
+    border: 3px solid black;
+    aspect-ratio: 1/1;
+    font-size: 2rem;
+    padding: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+      background-color: $bg-color;
+    }
+    &:disabled {
+      opacity: 0.3;
+      border: none;
+    }
+  }
+
+  .active {
+    &:disabled {
+      background-color: $bg-color;
+      color: white;
+      border: 3px solid green;
+    }
+  }
+
+  .inactive {
+    &:disabled {
+      opacity: 0.3;
+      border: 3px solid red;
+    }
+  }
+}
